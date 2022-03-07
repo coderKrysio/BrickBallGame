@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Brick Ball</title>
+
+    <!--website icon-->
+    <link rel="shortcut icon" type="image/png" href="icon.png">
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Genos:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+
+    <!--Tailwind css and style-->
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"/>
+    <style>
+        body {
+            padding: 0%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #title
+        {
+            font-family: 'Press Start 2P', cursive;
+            color: saddlebrown;
+        }
+
+        #instruction p{
+            font-family: 'VT323', monospace; 
+            color: brown;
+        }
+
+        #instruction img{
+            float: left;
+            filter: invert(21%) sepia(19%) saturate(7017%) hue-rotate(340deg) brightness(94%) contrast(87%);
+        }
+        #bigScoreEl{
+            font-family: 'Russo One', sans-serif;
+            color: saddlebrown;
+            display: none;
+        }
+
+        #textScoreEl{
+            font-family: 'Genos', sans-serif; 
+            color: sienna;
+            display: none;
+        }
+
+        #gameovertxt,  #newHighScoreText{
+            font-family: 'Press Start 2P', cursive; 
+            color: saddlebrown;
+            display: none;
+        }
+
+        #startGameBtn{
+            font-family: 'Press Start 2P', cursive;
+            background-color: sandybrown;
+            color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- adding a UI panel to display the score and the start button -->
+    <div class="fixed inset-0 flex items-center justify-center" id="modalEl" >
+        <div class="bg-white max-w-md w-full rounded-3xl p-6 text-center" style="background-color: peachpuff;">
+            
+            <!--Title-->
+            <h1 class="text-4xl font-bold select-none" id="title">Brick Ball</h1>
+
+            <!--Instructions and information-->
+            <div class="py-1 text-xl select-none" id="instruction">
+                <p>Destroy the bricks
+                    <br>(Use desktop or laptop for better user experience)
+                    <br> How to Play?</p>
+
+                <div class="flex items-center justify-center">
+                    <img src="spacebar.png" alt="spacebar Key" width="20">
+                    <p>&nbsp;: Press spacebar to launch the ball</p>
+                </div>
+                
+                <div class="flex items-center justify-center">
+                    <img src="left-arrow.png" alt="left Arrow Key" width="15">
+                    <p>&nbsp;: Press left-arrow key to move left</p>
+                </div>
+
+                <div class="flex items-center justify-center">
+                    <img src="right-arrow.png" alt="Right Arrow Key" width="15"> 
+                    <p>&nbsp;: Press right-arrow key to move right</p>
+                </div>
+
+                <p style="text-decoration: underline;">&#x226A; PowerUps Manual &#x226B;</p>
+                <div class="flex items-center justify-center">
+                    <p class="text-xl font-bold" >=&nbsp;</p>
+                    <p>: Makes the paddle <b>longer</b></p>
+                </div>
+                <div class="flex items-center justify-center">
+                    <p class="text-xl font-bold" >~&nbsp;</p>
+                    <p>: Makes the paddle <b>sticky</b></p>
+                </div>
+                <div class="flex items-center justify-center">
+                    <p class="text-xl font-bold" >s&nbsp;</p>
+                    <p>: Makes the ball <b>super fast</b></p>
+                </div>
+                <div class="flex items-center justify-center">
+                    <p class="text-xl font-bold" >+&nbsp;</p>
+                    <p>: Adds an <b>extra life</b></p>
+                </div>
+            </div>
+
+            <!--Game over, score and high score display-->
+            <p class="text-4xl font-bold select-none" id="gameovertxt"></p>
+
+            <h1 class="text-4xl font-bold leading-none" id="bigScoreEl">0</h1>
+            <p class="text-m text-gray-600 mb-4" id="textScoreEl">Your Score</p>
+
+            <h1 class="text-4xl font-bold leading-none" id="bigHighScoreEl" style="font-family: 'Russo One', sans-serif; color: saddlebrown;"></h1>
+            <p class="text-m mb-4" style="font-family: 'Genos', sans-serif; color: sienna;">High Score</p>
+
+            <p class="text-2xl font-bold select-none" id="newHighScoreText">!! New High Score !!</p>
+            
+            <!--Start game button-->
+            <div>
+                <button class="w-full py-3 rounded-full text-xs focus:outline-none" id="startGameBtn">S t a r t</button>
+            </div>
+        </div>
+    </div>
+
+    <canvas></canvas>    
+    <script src="script.js"></script>
+</body>
+
+</html>
